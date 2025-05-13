@@ -1,0 +1,30 @@
+.body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+}
+.logo {
+    width: 100px;
+    height: auto;
+}

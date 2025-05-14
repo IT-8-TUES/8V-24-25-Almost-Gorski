@@ -192,7 +192,6 @@
     const captionText = document.getElementById("caption");
     const closeBtn = document.querySelector(".modal .close");
 
-    // Add click event to all card images
     document.querySelectorAll(".card-image").forEach((img) => {
       img.addEventListener("click", function () {
         modal.style.display = "block";
@@ -201,12 +200,10 @@
       });
     });
 
-    // Close the modal when the close button is clicked
     closeBtn.addEventListener("click", function () {
       modal.style.display = "none";
     });
 
-    // Close the modal when clicking outside the image
     modal.addEventListener("click", function (e) {
       if (e.target === modal) {
         modal.style.display = "none";

@@ -160,6 +160,11 @@
         <a href="/8V-24-25-Almost-Gorski/Kris/about.html">About</a>
       </nav>
     </footer>
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="expandedImage" />
+      <div id="caption"></div>
+    </div>
     <script src="../Kamen/script.js"></script>
   </body>
   <script>
@@ -180,6 +185,32 @@
           }
         }
       });
+    });
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImage");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.querySelector(".modal .close");
+
+    // Add click event to all card images
+    document.querySelectorAll(".card-image").forEach((img) => {
+      img.addEventListener("click", function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      });
+    });
+
+    // Close the modal when the close button is clicked
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    // Close the modal when clicking outside the image
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
     });
   </script>
 </html>

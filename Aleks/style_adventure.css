@@ -80,6 +80,26 @@ body {
   opacity: 0.5;
 }
 
+.scrolled header {
+  background-color: #1e3a27;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scrolled .menu a img {
+  background-color: white;
+  border-radius: 30%;
+  padding: 0.3rem;
+  transition: 0.3s;
+}
+
+.scrolled .menu a img:hover {
+  opacity: 0.5;
+}
+
+.scrolled .menu a {
+  color: #fff;
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -118,32 +138,12 @@ body {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.btn {
-  background-color: #ffa552;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #e68a2e;
-}
-
-.btn.small {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-}
-
 .mountain-layer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 180px;
+  height: 15rem;
   background: linear-gradient(to bottom, #4b6d4b, #2f5233);
   clip-path: polygon(
     0% 20%,
@@ -161,17 +161,6 @@ body {
   z-index: 1;
 }
 
-.adventures {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: #f4f1ed;
-}
-
-.adventures h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #2f5233;
-}
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -278,6 +267,64 @@ card .card-mountain {
 
 .very-hard-card .card-mountain path {
   fill: #d08a88;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 20rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2d5448;
+  border-radius: 0.7rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #3e6d5b;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #ffa552;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e68a2e;
+  transform: translateY(-2px);
 }
 
 footer {

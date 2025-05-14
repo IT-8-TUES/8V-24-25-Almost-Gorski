@@ -179,8 +179,8 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  flex: 0 0 40%;
-  max-width: 300px;
+  flex: 0 0 60%;
+  max-width: 300em;
 }
 
 .gallery-image::after {

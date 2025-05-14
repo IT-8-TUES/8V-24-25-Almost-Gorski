@@ -242,7 +242,47 @@ body {
   color: #fff;
 }
 
+card .card-mountain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.card .card-mountain svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.card .card-mountain path {
+  fill: #d7d2c6;
+  opacity: 0.8;
+}
+
+.easy-card .card-mountain path {
+  fill: #d7e3d2;
+}
+
+.medium-card .card-mountain path {
+  fill: #ead9b2;
+}
+
+.hard-card .card-mountain path {
+  fill: #e0b1a3;
+}
+
+.very-hard-card .card-mountain path {
+  fill: #d08a88;
+}
+
 footer {
+  position: bottom;
+  z-index: 1;
   width: 100%;
   background-color: #333;
   color: white;

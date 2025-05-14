@@ -7,6 +7,7 @@
 
 header {
   position: sticky;
+  z-index: 1;
   top: 0;
   width: 100%;
   height: 7em;
@@ -15,6 +16,15 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  color: #333;
   transition: background-color 0.3s ease;
 }
 
@@ -74,10 +84,16 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 85vh;
+  align-items: flex-start;
+  height: 60vh;
   text-align: center;
-  background: linear-gradient(to top, #2f5233 20%, #4b6d4b 60%, #d7e8e4);
+  background: linear-gradient(
+    to bottom,
+    #2f5233 0%,
+    #3e6b3d 40%,
+    #b5d1c3 75%,
+    #e7f1ec 100%
+  );
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
   color: #fff;
   overflow: hidden;
@@ -86,16 +102,20 @@ header {
 .hero-text {
   z-index: 2;
   padding: 2rem;
+  text-align: center;
+  margin-top: 5rem;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 5rem;
+  margin-bottom: 2rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -126,13 +146,13 @@ header {
   height: 180px;
   background: linear-gradient(to bottom, #4b6d4b, #2f5233);
   clip-path: polygon(
-    0 20%,
+    0% 20%,
     10% 40%,
     25% 10%,
     40% 60%,
     55% 30%,
     70% 50%,
-    85% 20%,
+    85% 0%,
     100% 45%,
     100% 100%,
     0% 100%
@@ -153,24 +173,31 @@ header {
   color: #2f5233;
 }
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  align-items: center;
+  width: 20rem;
   background-color: #f5f1e6;
   color: #2d5448;
   padding: 1.5rem;
   border-radius: 1.25rem;
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  min-height: 150px;
+  min-height: 6rem;
 }
 
 .card h2 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+  font-size: 1.4rem;
+  margin: 1rem 0;
 }
 
 .card .location {
@@ -210,10 +237,60 @@ header {
   color: #fff;
 }
 
+.very-hard {
+  background-color: #cf3b3b;
+  color: #fff;
+}
+
 footer {
-  background-color: #2f5233;
+  width: 100%;
+  background-color: #333;
   color: white;
-  padding: 2rem;
   text-align: center;
-  font-size: 0.9rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.footer-content {
+  margin-left: 3rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-content a {
+  color: green;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: gray;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 2rem;
+}
+
+.footer-menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-bottom: 5px;
+  margin: 0 1em;
+  font-size: 1.2rem;
+}
+
+.footer-menu a:hover {
+  color: gray;
 }

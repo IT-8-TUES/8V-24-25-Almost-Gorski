@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adventures</title>
     <link rel="stylesheet" href="style_adventure.css" />
+    <script>
+      window.addEventListener("scroll", function () {
+        document.body.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
   </head>
   <body>
     <header>
@@ -45,7 +50,7 @@
 
       <section class="cards">
         <div class="card">
-          <span class="badge hard">VERY HARD</span>
+          <span class="badge very-hard">VERY HARD</span>
           <h2>Мусаленски циркус</h2>
           <p class="location">Рила планина</p>
           <p class="distance">18,76 km</p>
@@ -59,7 +64,7 @@
         </div>
 
         <div class="card">
-          <span class="badge medium">MEDUIM</span>
+          <span class="badge medium">medium</span>
           <h2>Кончето</h2>
           <p class="location">Пирин планина</p>
           <p class="distance">13.05 km</p>
@@ -69,12 +74,29 @@
           <span class="badge easy">EASY</span>
           <h2>Боянски водопад</h2>
           <p class="location">Витоша</p>
-          <p class="distance"></p>
+          <p class="distance">все още не знам</p>
         </div>
       </section>
     </main>
     <footer>
-      <p>© 2025 Gorski. All rights reserved.</p>
+      <div class="footer-content">
+        <p>
+          За повече информация изпратете e-mail на
+          <a href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+            >gorskite4@gmail.com</a
+          >
+        </p>
+        <p>© 2025 Gorski. All rights reserved.</p>
+      </div>
+      <nav class="footer-menu">
+        <a href="/8V-24-25-Almost-Gorski/Kamen/index.html">Home</a>
+        <a href="/8V-24-25-Almost-Gorski/Aleks/adventures_main.html"
+          >Adventures</a
+        >
+        <a href="/8V-24-25-Almost-Gorski/Kamen/gallery.html">Gallery</a>
+        <a href="/8V-24-25-Almost-Gorski/Aleks/contacts.html">Contacts</a>
+        <a href="/8V-24-25-Almost-Gorski/Kris/about.html">About</a>
+      </nav>
     </footer>
   </body>
 </html>

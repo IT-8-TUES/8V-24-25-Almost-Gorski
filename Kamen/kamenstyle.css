@@ -78,7 +78,7 @@ header {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: linear-gradient(180deg, #589a68 0%, #033409 100%);
+    background: linear-gradient(180deg, #6d9777 10%, #095012 100%);
     opacity: 0.95;
 }
 
@@ -221,8 +221,8 @@ header {
 }
 
 footer {
-    width: 100vw;
-    margin: 0;
+    width: 99vw;
+    margin-bottom: -5rem;
     padding: 0;
     box-sizing: border-box;
     position: relative;
@@ -232,11 +232,11 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
+    margin-top: auto; /* Push the footer to the bottom of the page */
     transition: background-color 0.3s ease;
     font-size: 1.2rem;
 }

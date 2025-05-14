@@ -6,12 +6,11 @@
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
   height: 7em;
-  background: forestgreen;
+  background: #2f5233;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,7 +54,7 @@ header {
 }
 
 .menu a {
-  margin: 0 15px;
+  margin: 0 1em;
   text-decoration: none;
   color: #333;
   transition: color 0.3s ease;
@@ -69,4 +68,155 @@ header {
 
 .menu a img:hover {
   opacity: 0.5;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  text-align: center;
+  background: linear-gradient(to top, #2f5233 20%, #4b6d4b 60%, #d7e8e4);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-text {
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #ffa552;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e68a2e;
+}
+
+.btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.mountain-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(to bottom, #4b6d4b, #2f5233);
+  clip-path: polygon(
+    0% 90%,
+    10% 80%,
+    20% 75%,
+    30% 70%,
+    40% 65%,
+    50% 60%,
+    60% 55%,
+    70% 45%,
+    80% 35%,
+    90% 25%,
+    100% 20%,
+    100% 100%,
+    0% 100%
+  );
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.adventures {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f4f1ed;
+}
+
+.adventures h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2f5233;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f5f1e6;
+  color: #2d5448;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  min-height: 150px;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.card .location {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.card .distance {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-transform: uppercase;
+}
+
+.easy {
+  background-color: #2d5448;
+  color: #fff;
+}
+
+.hard {
+  background-color: #c2513c;
+  color: #fff;
+}
+
+.medium {
+  background-color: #d29338;
+  color: #fff;
+}
+
+footer {
+  background-color: #2f5233;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
 }

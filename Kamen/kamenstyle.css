@@ -305,16 +305,39 @@ footer {
     font-size: 18px;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: fadeOut 0.3s ease forwards; /* Default fade-out animation */
 }
 
 #topBtn.show {
-    display: flex;
+    display: block;
+    animation: fadeIn 0.3s ease forwards; /* Fade-in animation when visible */
 }
 
-#topBtn:hover {
-    background-color: #555;
-    transform: scale(1.1);
-    opacity: 1;
+#topBtn:not(.show) {
+    animation: fadeOut 0.3s ease forwards; /* Fade-out animation when hidden */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 }

@@ -3,16 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const footer = document.querySelector("footer");
 
     if (!topBtn) {
+        console.error("Top button element with ID 'topBtn' not found.");
         return;
     }
 
     window.addEventListener("scroll", () => {
         if (window.scrollY > 200) {
             topBtn.classList.add("show");
-            topBtn.style.display = "flex";
         } else {
             topBtn.classList.remove("show");
-            topBtn.style.display = "none";
         }
 
         if (footer) {

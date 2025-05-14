@@ -17,6 +17,7 @@ header {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     z-index: 1000;
+    overflow: hidden;
 }
 
 .logo {
@@ -113,10 +114,10 @@ header {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    padding: 3rem;
     color: #333;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1.2rem;
+    line-height: 1.8;
     flex-direction: column;
     position: relative;
     width: 80%;
@@ -124,12 +125,13 @@ header {
 
 .page-desc h2 {
     position: absolute;
-    top: 1rem;
+    top: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
     text-align: center;
     width: auto;
+    margin-bottom: 0rem;
 }
 
 .gallery {
@@ -146,8 +148,10 @@ header {
 
 .gallery-item {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
+    text-align: left;
+    gap: 1rem;
     border-radius: 1rem;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.5);
@@ -155,7 +159,6 @@ header {
     max-width: 50rem;
     width: 100%;
     position: relative;
-    text-align: center;
     margin: 0 auto;
 }
 
@@ -172,7 +175,8 @@ header {
     align-items: center;
     justify-content: center;
     position: relative;
-    flex-shrink: 0;
+    flex: 0 0 40%;
+    max-width: 300px;
 }
 
 .gallery-image::after {
@@ -195,7 +199,8 @@ header {
 }
 
 .gallery-image img {
-    max-width: 15rem;
+    width: 100%;
+    height: auto;
     border-radius: 0.5rem;
 }
 
@@ -203,7 +208,10 @@ header {
     flex: 1;
     font-size: 1rem;
     color: #000000;
-    padding-left: 1rem;
+    text-align: left;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
     line-height: 1.5;
 }
 
@@ -221,11 +229,12 @@ header {
 }
 
 footer {
-    width: 99vw;
-    margin-bottom: -5rem;
+    width: 100%;
+    margin-bottom: 0;
     padding: 0;
     box-sizing: border-box;
     position: relative;
+    z-index: 1;
     clear: both;
     left: 0;
     right: 0;
@@ -236,9 +245,10 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Push the footer to the bottom of the page */
+    margin-top: auto;
     transition: background-color 0.3s ease;
     font-size: 1.2rem;
+    overflow: hidden;
 }
 
 .footer-content {
@@ -278,4 +288,33 @@ footer {
 
 .footer-menu a:hover {
     color: gray;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    display: none;
+    border: none;
+    outline: none;
+    background-color: rgba(24, 112, 43, 0.8);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#topBtn.show {
+    display: flex;
+}
+
+#topBtn:hover {
+    background-color: #555;
+    transform: scale(1.1);
+    opacity: 1;
 }

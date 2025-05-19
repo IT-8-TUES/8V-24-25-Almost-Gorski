@@ -74,6 +74,7 @@
         <div class="gallery-image">
           <img src="./img/PXL_20240706_145517607.jpg" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Nature's creation</h1></i>
           <p>
@@ -87,6 +88,7 @@
         <div class="gallery-image">
           <img src="./img/2.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Lightfall in the Abyss</h1></i>
           <p>
@@ -99,6 +101,7 @@
         <div class="gallery-image">
           <img src="./img/5.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Follow the Flow</h1></i>
           <p>Усетете бриза на бързите реки в планини и равнини</p>
@@ -108,6 +111,7 @@
         <div class="gallery-image">
           <img src="./img/3.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Whispers of the Fall</h1></i>
           <p>Вижте как водите на балкана се леят пред очите Ви</p>
@@ -117,6 +121,7 @@
         <div class="gallery-image">
           <img src="./img/4.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Into the Wild</h1></i>
           <p>Вижте взимащи дъха гледки и им се насладете</p>
@@ -126,6 +131,7 @@
         <div class="gallery-image">
           <img src="./img/6.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>Look the Horizon</h1></i>
           <p>
@@ -138,6 +144,7 @@
         <div class="gallery-image">
           <img src="./img/7.png" alt="Image" />
         </div>
+        <hr class="gallery-divider">
         <div class="gallery-text">
           <i><h1>The more - The better</h1></i>
           <p>Погледнете напред и се насладете</p>
@@ -165,8 +172,24 @@
       </nav>
     </footer>
     <script src="script.js"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var grid = document.querySelector('.gallery');
+        if (grid) {
+          new Masonry(grid, {
+            itemSelector: '.gallery-item',
+            columnWidth: '.gallery-item',
+            percentPosition: true,
+            gutter: 32
+          });
+        }
+      });
+    </script>
+  
   </body>
-  <script>
+  <script> //функция на Алекс
     window.addEventListener("scroll", function () {
       const isScrolled = window.scrollY > 50;
       document.body.classList.toggle("scrolled", isScrolled);

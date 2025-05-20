@@ -406,16 +406,16 @@ footer {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: fadeOut 0.3s ease forwards; /* Default fade-out animation */
+  animation: fadeOut 0.3s ease forwards;
 }
 
 #topBtn.show {
   display: block;
-  animation: fadeIn 0.3s ease forwards; /* Fade-in animation when visible */
+  animation: fadeIn 0.3s ease forwards;
 }
 
 #topBtn:not(.show) {
-  animation: fadeOut 0.3s ease forwards; /* Fade-out animation when hidden */
+  animation: fadeOut 0.3s ease forwards;
 }
 
 @keyframes fadeIn {

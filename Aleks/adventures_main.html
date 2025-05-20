@@ -79,7 +79,9 @@
                 <path d="M0 30 L20 10 L40 20 L60 5 L80 15 L100 0 L100 30 Z" />
               </svg>
             </div>
-            <a class="btn" href="#" target="blank">View Trail</a>
+            <a class="btn" href="../Aleks/musalenski_cirkus.html" target="blank"
+              >View Trail</a
+            >
           </div>
         </div>
 
@@ -99,7 +101,9 @@
                 <path d="M0 30 L20 10 L40 20 L60 5 L80 15 L100 0 L100 30 Z" />
               </svg>
             </div>
-            <a class="btn" href="#" target="blank">View Trail</a>
+            <a class="btn" href="../Aleks/baiovo_dupki.html" target="blank"
+              >View Trail</a
+            >
           </div>
         </div>
 
@@ -115,7 +119,9 @@
                 <path d="M0 30 L20 10 L40 20 L60 5 L80 15 L100 0 L100 30 Z" />
               </svg>
             </div>
-            <a class="btn" href="#" target="blank">View Trail</a>
+            <a class="btn" href="../Aleks/koncheto.html" target="blank"
+              >View Trail</a
+            >
           </div>
         </div>
 
@@ -166,48 +172,6 @@
       <div id="caption"></div>
     </div>
     <script src="../Kamen/script.js"></script>
+    <script src="../Aleks/aleks-script.js"></script>
   </body>
-  <script>
-    window.addEventListener("scroll", function () {
-      const isScrolled = window.scrollY > 50;
-      document.body.classList.toggle("scrolled", isScrolled);
-
-      const headerImages = document.querySelectorAll("header .menu a img");
-      headerImages.forEach((img) => {
-        const src = img.getAttribute("src");
-        if (isScrolled) {
-          if (src.includes("Inverted")) {
-            img.setAttribute("src", src.replace("Inverted", ""));
-          }
-        } else {
-          if (!src.includes("Inverted")) {
-            img.setAttribute("src", src.replace(".png", "Inverted.png"));
-          }
-        }
-      });
-    });
-
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("expandedImage");
-    const captionText = document.getElementById("caption");
-    const closeBtn = document.querySelector(".modal .close");
-
-    document.querySelectorAll(".card-image").forEach((img) => {
-      img.addEventListener("click", function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      });
-    });
-
-    closeBtn.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-
-    modal.addEventListener("click", function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  </script>
 </html>

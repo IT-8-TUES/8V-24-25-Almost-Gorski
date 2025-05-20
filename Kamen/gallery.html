@@ -69,6 +69,7 @@
         />
       </svg>
     </button>
+    <div class="gallery-wrapper">
     <div class="gallery">
       <div class="gallery-item">
         <div class="gallery-image">
@@ -151,6 +152,7 @@
         </div>
       </div>
     </div>
+    </div>
     <footer>
       <div class="footer-content">
         <p>
@@ -176,11 +178,17 @@
       document.addEventListener('DOMContentLoaded', function() {
         var grid = document.querySelector('.gallery');
         if (grid) {
-          new Masonry(grid, {
+           msnry = new Masonry(grid, {
             itemSelector: '.gallery-item',
             columnWidth: '.gallery-item',
             percentPosition: true,
-            gutter: 48          
+            gutter: 20, /* Adjust gutter for better spacing */
+            horizontalOrder: true /* Ensure items respect horizontal alignment */
+          });
+
+          // Adjust alignment after Masonry layout
+          msnry.on('layoutComplete', function() {
+            grid.style.justifyContent = 'flex-end'; /* Move items to the right */
           });
         }
       });

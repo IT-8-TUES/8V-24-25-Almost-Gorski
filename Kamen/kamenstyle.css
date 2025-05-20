@@ -140,22 +140,22 @@ header {
 
 .gallery-wrapper {
   display: flex;
-  justify-content: center; /* Center the gallery */
-  align-items: flex-start;
+  justify-content: center; /* Center the gallery horizontally */
+  align-items: center; /* Center the gallery vertically */
   width: 100%; /* Ensure it spans the whole screen */
   padding: 0; /* Remove extra padding */
   box-sizing: border-box;
 }
 
 .gallery {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap */
-  justify-content: space-between; /* Spread items across the screen */
-  align-items: flex-start;
+  display: grid; /* Use CSS Grid for a clean layout */
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr)); /* Responsive columns */
+  gap: 2em; /* Add spacing between items */
   width: 100%; /* Make the gallery span the full width */
-  max-width: 100%; /* Remove any max-width constraints */
+  max-width: 1200px; /* Center the gallery within a max width */
   padding: 2em; /* Add some padding for spacing */
   box-sizing: border-box;
+  margin: 0 auto; /* Center the gallery horizontally */
 }
 
 .gallery-item {
@@ -168,11 +168,11 @@ header {
   padding: 2em;
   background-color: rgba(255, 255, 255, 0.5);
   color: #2f2d2d;
-  max-width: 20em;
-  width: 20em;
-  margin: 0 auto 2em auto; /* Center individual items horizontally */
   box-sizing: border-box;
   font-size: 1.15em;
+  max-width: 20em; /* Restore the original max width */
+  width: 20em; /* Restore the original width */
+  margin-top: 1em;
 }
 
 .gallery-image {
@@ -187,8 +187,8 @@ header {
 }
 
 .gallery-image img {
-  width: 120%;
-  height: auto;
+  width: 120%; /* Restore the original width */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 0.5em;
 }
 

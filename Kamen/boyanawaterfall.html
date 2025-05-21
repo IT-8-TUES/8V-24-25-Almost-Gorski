@@ -86,24 +86,4 @@
     </footer>
     <script src="script.js"></script>
   </body>
-<script> //функция на Алекс
-    window.addEventListener("scroll", function () {
-      const isScrolled = window.scrollY > 50;
-      document.body.classList.toggle("scrolled", isScrolled);
-
-      const headerImages = document.querySelectorAll("header .menu a img");
-      headerImages.forEach((img) => {
-        const src = img.getAttribute("src");
-        if (isScrolled) {
-          if (src.includes("Inverted")) {
-            img.setAttribute("src", src.replace("Inverted", ""));
-          }
-        } else {
-          if (!src.includes("Inverted")) {
-            img.setAttribute("src", src.replace(".png", "Inverted.png"));
-          }
-        }
-      });
-    });
-</script>
 </html>

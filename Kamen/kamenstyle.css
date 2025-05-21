@@ -612,33 +612,6 @@ footer {
   }
 }
 
-button {
-    background-color: #228b22;
-    color: white;
-    border: none;
-    padding: 0.625rem 1.25rem;
-    border-radius: 0.3125rem;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center;
-    margin-top: 0.75rem;
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-}
-
-button:hover {
-    background-color: #1e7a1e;
-    transform: scale(1.05);
-}
-
-button:active {
-    background-color: #196619;
-    transform: scale(0.95);
-}
-
 .badge {
   font-size: 0.75rem;
   font-weight: bold;
@@ -651,4 +624,26 @@ button:active {
 .easy {
   background-color: #2d5448;
   color: #fff;
+}
+
+#sign-button {
+  background-color: #228b22;
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+  margin-top: 0.75rem;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+#sign-button:hover {
+  background-color: #1e7a1e;
+  transform: scale(1.05);
 }

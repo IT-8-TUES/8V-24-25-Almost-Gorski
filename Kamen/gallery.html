@@ -6,6 +6,7 @@
     <title>Gorski Gallery</title>
     <link rel="stylesheet" href="Kamenstyle.css" />
     <link rel="icon" href="./img/GorskiAdventureLogo.png" type="image/x-icon" />
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   </head>
   <body>
     <div class="background"></div>
@@ -172,28 +173,26 @@
       </nav>
     </footer>
     <script src="script.js"></script>
-
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var grid = document.querySelector('.gallery');
         if (grid) {
-           msnry = new Masonry(grid, {
+          var msnry = new Masonry(grid, {
             itemSelector: '.gallery-item',
             columnWidth: '.gallery-item',
             percentPosition: true,
-            gutter: 20, /* Adjust gutter for better spacing */
-            horizontalOrder: true /* Ensure items respect horizontal alignment */
+            gutter: 22,
+            fitWidth: true,
+            horizontalOrder: true
           });
-
-          // Adjust alignment after Masonry layout
-          msnry.on('layoutComplete', function() {
-            grid.style.justifyContent = 'flex-end'; /* Move items to the right */
+          
+          imagesLoaded(grid).on('progress', function() {
+            msnry.layout();
           });
         }
       });
     </script>
-  
   </body>
   <script> //функция на Алекс
     window.addEventListener("scroll", function () {

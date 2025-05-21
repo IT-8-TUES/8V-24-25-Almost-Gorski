@@ -140,22 +140,20 @@ header {
 
 .gallery-wrapper {
   display: flex;
-  justify-content: center; /* Center the gallery horizontally */
-  align-items: center; /* Center the gallery vertically */
-  width: 100%; /* Ensure it spans the whole screen */
-  padding: 0; /* Remove extra padding */
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+  padding: 0;
   box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .gallery {
-  display: grid; /* Use CSS Grid for a clean layout */
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr)); /* Responsive columns */
-  gap: 2em; /* Add spacing between items */
-  width: 100%; /* Make the gallery span the full width */
-  max-width: 1200px; /* Center the gallery within a max width */
-  padding: 2em; /* Add some padding for spacing */
-  box-sizing: border-box;
-  margin: 0 auto; /* Center the gallery horizontally */
+  margin: 0 auto;
+  width: auto;
+  display: block;
+  padding: 2em;
 }
 
 .gallery-item {
@@ -170,9 +168,11 @@ header {
   color: #2f2d2d;
   box-sizing: border-box;
   font-size: 1.15em;
-  max-width: 20em; /* Restore the original max width */
-  width: 20em; /* Restore the original width */
-  margin-top: 1em;
+  min-width: 16em;
+  max-width: 20em;
+  width: 100%;
+  margin: 1em auto;
+  transition: transform 0.3s ease;
 }
 
 .gallery-image {
@@ -187,8 +187,8 @@ header {
 }
 
 .gallery-image img {
-  width: 120%; /* Restore the original width */
-  height: auto; /* Maintain aspect ratio */
+  width: 120%;
+  height: auto;
   border-radius: 0.5em;
 }
 
@@ -347,4 +347,22 @@ footer {
 
 .scrolled .menu a {
   color: #fff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .gallery {
+    padding: 1em;
+  }
+  
+  .gallery-item {
+    margin: 0.5em auto;
+    padding: 1.5em;
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  .gallery-image img {
+    width: 100%;
+  }
 }

@@ -28,3 +28,41 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+        var grid = document.querySelector('.gallery');
+        if (grid) {
+          var msnry = new Masonry(grid, {
+            itemSelector: '.gallery-item',
+            columnWidth: '.gallery-item',
+            percentPosition: true,
+            gutter: 22,
+            fitWidth: true,
+            horizontalOrder: true
+          });
+          
+          imagesLoaded(grid).on('progress', function() {
+            msnry.layout();
+          });
+        }
+      });
+
+//функция на Алекс
+window.addEventListener("scroll", function () {
+      const isScrolled = window.scrollY > 50;
+      document.body.classList.toggle("scrolled", isScrolled);
+
+      const headerImages = document.querySelectorAll("header .menu a img");
+      headerImages.forEach((img) => {
+        const src = img.getAttribute("src");
+        if (isScrolled) {
+          if (src.includes("Inverted")) {
+            img.setAttribute("src", src.replace("Inverted", ""));
+          }
+        } else {
+          if (!src.includes("Inverted")) {
+            img.setAttribute("src", src.replace(".png", "Inverted.png"));
+          }
+        }
+      });
+});

@@ -174,44 +174,5 @@
     </footer>
     <script src="script.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var grid = document.querySelector('.gallery');
-        if (grid) {
-          var msnry = new Masonry(grid, {
-            itemSelector: '.gallery-item',
-            columnWidth: '.gallery-item',
-            percentPosition: true,
-            gutter: 22,
-            fitWidth: true,
-            horizontalOrder: true
-          });
-          
-          imagesLoaded(grid).on('progress', function() {
-            msnry.layout();
-          });
-        }
-      });
-    </script>
   </body>
-  <script> //функция на Алекс
-    window.addEventListener("scroll", function () {
-      const isScrolled = window.scrollY > 50;
-      document.body.classList.toggle("scrolled", isScrolled);
-
-      const headerImages = document.querySelectorAll("header .menu a img");
-      headerImages.forEach((img) => {
-        const src = img.getAttribute("src");
-        if (isScrolled) {
-          if (src.includes("Inverted")) {
-            img.setAttribute("src", src.replace("Inverted", ""));
-          }
-        } else {
-          if (!src.includes("Inverted")) {
-            img.setAttribute("src", src.replace(".png", "Inverted.png"));
-          }
-        }
-      });
-    });
-  </script>
 </html>

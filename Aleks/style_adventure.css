@@ -102,21 +102,30 @@ body {
 
 .hero {
   position: relative;
+  z-index: 0;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 110vh;
   text-align: center;
   background: linear-gradient(
     to bottom,
-    #2f5233 0%,
+    #2f5233 10%,
     #3e6b3d 40%,
-    #b5d1c3 75%,
+    #b5d1c3 65%,
     #e7f1ec 100%
   );
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
   color: #fff;
   overflow: hidden;
+  padding-bottom: 0;
+}
+
+main {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .hero-text {
@@ -124,6 +133,7 @@ body {
   padding: 2rem;
   text-align: center;
   margin-top: 5rem;
+  margin-bottom: 2rem;
 }
 
 .hero h1 {
@@ -165,7 +175,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 .card {
@@ -180,24 +190,30 @@ body {
   padding: 1.5rem;
   border-radius: 1.25rem;
   position: relative;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   min-height: 6rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card h2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 1rem 0;
 }
 
 .card .location {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
   color: #444;
+  text-shadow: none;
 }
 
 .card .distance {
   font-weight: bold;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #2d5448;
+  padding: 0.5rem;
+  text-shadow: none;
 }
 
 .badge {
@@ -250,7 +266,7 @@ card .card-mountain {
 
 .card .card-mountain path {
   fill: #d7d2c6;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .easy-card .card-mountain path {
@@ -270,11 +286,10 @@ card .card-mountain {
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
-  justify-items: center;
-  text-align: center;
 }
 
 .card-wrapper {
@@ -344,7 +359,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0;
   transition: background-color 0.3s ease;
   font-size: 1.2rem;
 }

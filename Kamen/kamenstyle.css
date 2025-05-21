@@ -272,21 +272,21 @@ footer {
 
 #topBtn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 1.875rem;
+  right: 1.875rem;
   z-index: 100;
   display: none;
   border: none;
   outline: none;
   background-color: rgba(24, 112, 43, 0.8);
   cursor: pointer;
-  padding: 15px;
+  padding: 0.9375rem;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(1.25rem);
   transition: opacity 0.3s ease, transform 0.3s ease;
   animation: fadeOut 0.3s ease forwards; 
 }
@@ -303,7 +303,7 @@ footer {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
   to {
     opacity: 1;
@@ -318,7 +318,7 @@ footer {
   }
   to {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
 }
 
@@ -418,15 +418,15 @@ footer {
 
 #desc iframe {
   width: 100%;
-  max-width: 550px;
-  height: 450px;
+  max-width: 34.375rem;
+  height: 28.125rem;
   border-radius: 0.5rem;
   margin: 0;
 }
 
 .carousel-container {
   width: 80%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 3rem auto;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
@@ -447,25 +447,51 @@ footer {
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  height: 400px;
+  height: 45em;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
   height: 100%;
+  align-items: center;
+  width: 100%;
 }
 
 .carousel-slide {
   min-width: 100%;
   height: 100%;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1.0);
 }
 
 .carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.02);
 }
 
 .carousel-button {
@@ -476,8 +502,8 @@ footer {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -492,11 +518,11 @@ footer {
 }
 
 .prev-button {
-  left: 10px;
+  left: 0.625rem;
 }
 
 .next-button {
-  right: 10px;
+  right: 0.625rem;
 }
 
 .carousel-dots {
@@ -506,11 +532,11 @@ footer {
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
   background-color: rgba(47, 82, 51, 0.3);
   border-radius: 50%;
-  margin: 0 8px;
+  margin: 0 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -521,7 +547,7 @@ footer {
 
 .howTo{
   width: 80%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 3rem auto;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
@@ -576,12 +602,12 @@ footer {
 
 @media (max-width: 768px) {
   .carousel {
-    height: 300px;
+    height: 21.875rem;
   }
   
   .carousel-button {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     font-size: 1rem;
   }
 }

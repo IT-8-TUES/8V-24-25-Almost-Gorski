@@ -77,8 +77,32 @@ document.addEventListener('DOMContentLoaded', function() {
   if (track && slides.length) {
     let currentIndex = 0;
     
+    const preloadImages = () => {
+      const imagePromises = Array.from(slides).map(slide => {
+        return new Promise((resolve, reject) => {
+          const img = slide.querySelector('img');
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = () => resolve();
+            img.onerror = () => {
+              console.error(`Failed to load image: ${img.src}`);
+              resolve();
+            };
+          }
+        });
+      });
+      
+      return Promise.all(imagePromises);
+    };
+    
     function updateCarousel() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const offset = currentIndex * 100;
+      track.style.transform = `translateX(-${offset}%)`;
+      
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentIndex);
+      });
       
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
@@ -105,26 +129,39 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
     
-    setInterval(nextSlide, 5000);
-    
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    track.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    track.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-    
-    function handleSwipe() {
-      if (touchEndX < touchStartX) {
-        nextSlide();
-      } else if (touchEndX > touchStartX) {
-        prevSlide();
+    preloadImages().then(() => {
+      console.log("All carousel images loaded");
+      updateCarousel();
+      
+      const autoAdvance = setInterval(nextSlide, 5000);
+      
+      track.addEventListener('mouseenter', () => {
+        clearInterval(autoAdvance);
+      });
+      
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+          nextSlide();
+        } else if (touchEndX > touchStartX + 50) {
+          prevSlide();
+        }
       }
-    }
+    }).catch(error => {
+      console.error("Error initializing carousel:", error);
+    });
+    
+    window.addEventListener('resize', updateCarousel);
   }
 });

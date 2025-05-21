@@ -100,6 +100,17 @@ body {
   color: #fff;
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: linear-gradient(180deg, #6d9777 10%, #095012 100%);
+  opacity: 0.95;
+}
+
 .hero {
   position: relative;
   z-index: 0;

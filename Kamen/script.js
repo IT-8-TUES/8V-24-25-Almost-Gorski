@@ -28,3 +28,140 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+        var grid = document.querySelector('.gallery');
+        if (grid) {
+          var msnry = new Masonry(grid, {
+            itemSelector: '.gallery-item',
+            columnWidth: '.gallery-item',
+            percentPosition: true,
+            gutter: 22,
+            fitWidth: true,
+            horizontalOrder: true
+          });
+          
+          imagesLoaded(grid).on('progress', function() {
+            msnry.layout();
+          });
+        }
+      });
+
+//функция на Алекс
+window.addEventListener("scroll", function () {
+      const isScrolled = window.scrollY > 50;
+      document.body.classList.toggle("scrolled", isScrolled);
+
+      const headerImages = document.querySelectorAll("header .menu a img");
+      headerImages.forEach((img) => {
+        const src = img.getAttribute("src");
+        if (isScrolled) {
+          if (src.includes("Inverted")) {
+            img.setAttribute("src", src.replace("Inverted", ""));
+          }
+        } else {
+          if (!src.includes("Inverted")) {
+            img.setAttribute("src", src.replace(".png", "Inverted.png"));
+          }
+        }
+      });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+  const dots = document.querySelectorAll('.dot');
+  
+  if (track && slides.length) {
+    let currentIndex = 0;
+    
+    const preloadImages = () => {
+      const imagePromises = Array.from(slides).map(slide => {
+        return new Promise((resolve, reject) => {
+          const img = slide.querySelector('img');
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = () => resolve();
+            img.onerror = () => {
+              console.error(`Failed to load image: ${img.src}`);
+              resolve();
+            };
+          }
+        });
+      });
+      
+      return Promise.all(imagePromises);
+    };
+    
+    function updateCarousel() {
+      const offset = currentIndex * 100;
+      track.style.transform = `translateX(-${offset}%)`;
+      
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentIndex);
+      });
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }
+    
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+    
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+    
+    preloadImages().then(() => {
+      console.log("All carousel images loaded");
+      updateCarousel();
+      
+      const autoAdvance = setInterval(nextSlide, 5000);
+      
+      track.addEventListener('mouseenter', () => {
+        clearInterval(autoAdvance);
+      });
+      
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+          nextSlide();
+        } else if (touchEndX > touchStartX + 50) {
+          prevSlide();
+        }
+      }
+    }).catch(error => {
+      console.error("Error initializing carousel:", error);
+    });
+    
+    window.addEventListener('resize', updateCarousel);
+  }
+});

@@ -194,7 +194,7 @@ header {
 
 .gallery-divider {
   width: 80%;
-  height: 2px;
+  height: 2px; /*Тук ако се използва em или rem няма да изглежда добре */
   background: #2f5233;
   margin: 1em 0;
   border: none;
@@ -261,7 +261,7 @@ footer {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
-  margin-bottom: 5px;
+  margin-bottom: 0.5em;
   margin: 0 1em;
   font-size: 1.2rem;
 }
@@ -637,4 +637,18 @@ button:hover {
 button:active {
     background-color: #196619;
     transform: scale(0.95);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.easy {
+  background-color: #2d5448;
+  color: #fff;
 }

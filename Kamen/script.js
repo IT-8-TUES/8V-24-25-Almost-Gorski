@@ -119,16 +119,5 @@ document.addEventListener('DOMContentLoaded', function() {
     track.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     });
-    
-    track.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].screenX;
-      const threshold = 50;
-      
-      if (touchEndX < touchStartX - threshold) {
-        nextSlide();
-      } else if (touchEndX > touchStartX + threshold) {
-        prevSlide();
-      }
-    });
   }
 });

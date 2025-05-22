@@ -766,7 +766,19 @@ function resetAnimation() {
   if (animationPath) {
     animationPath.setLatLngs([]);
   }
-  n;
+
+  if (animationMarker && trackPoints && trackPoints.length > 0) {
+    animationMarker.setLatLng(trackPoints[0]);
+    const elevation = trackPoints[0].alt ? trackPoints[0].alt.toFixed(0) : "0";
+    const content = `
+      <div class="elevation-content">
+        <span class="elevation-value">${elevation}</span>
+        <span class="elevation-unit">m</span>
+      </div>
+    `;
+    animationMarker.getPopup().setContent(content);
+  }
+
   updatePosition();
 
   const playBtn = document.getElementById("play-btn");
@@ -894,8 +906,7 @@ function createTrackLegend() {
     const div = L.DomUtil.create("div", "track-legend");
     div.style.cssText =
       "background: white; padding: 0.75rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 0.8125rem; max-width: 15rem; backdrop-filter: blur(5px);";
-
-    const trackName = getTrackNameInBulgarian();
+    const trackInfo = getTrackNameInBulgarian();
 
     const progress = trackPoints
       ? Math.round((currentPointIndex / (trackPoints.length - 1)) * 100)
@@ -931,6 +942,22 @@ function createTrackLegend() {
           color: #1a1a1a; 
           font-size: 0.875rem;
           text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+          display: flex;
+          align-items: center;
+          gap: 0.625rem;
+        }
+        .legend-badge {
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.3125rem;
+          color: white;
+          font-weight: bold;
+          text-transform: uppercase;
+        }        .legend-badge.very-hard {
+          background-color: #ff3b30;
+        }
+        .legend-badge.hard {
+          background-color: #fc5200;
         }
         .legend-item { 
           display: flex; 
@@ -976,9 +1003,12 @@ function createTrackLegend() {
         .highlight-value {
           color: #fc5200;
           font-weight: 700;
-        }
-      </style>
-      <div class="legend-title">${trackName}</div>
+        }      </style>      <div class="legend-title">
+        ${trackInfo.name}
+        <span class="legend-badge ${
+          trackInfo.difficulty
+        }">${trackInfo.difficulty.toUpperCase().replace("-", " ")}</span>
+      </div>
       <div class="legend-divider"></div>      <div class="legend-item">
         <span class="legend-label">Разстояние:</span>
         <span class="legend-value">
@@ -1040,14 +1070,12 @@ function getTrackNameInBulgarian() {
   const url = window.location.href.toLowerCase();
 
   if (url.includes("musalenski_cirkus")) {
-    return "Мусаленски циркус";
+    return { name: "Мусаленски циркус", difficulty: "very-hard" };
   } else if (url.includes("koncheto")) {
-    return "Кончето";
+    return { name: "Кончето", difficulty: "very-hard" };
   } else if (url.includes("baiovo_dupki")) {
-    return "Баюви дупки";
+    return { name: "Баюви дупки", difficulty: "hard" };
   }
-
-  return "Планински маршрут";
 }
 
 function calculateCurrentPace(currentIndex) {

@@ -3,8 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Koncheto</title>
+    <title>Koncheto - Gorski Adventures</title>
     <link rel="stylesheet" href="../Aleks/separated_adventures.css" />
+    <link rel="stylesheet" href="book_content_styles.css" />
+    <link rel="stylesheet" href="gpx-track.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
     <script>
       window.addEventListener("scroll", function () {
         document.body.classList.toggle("scrolled", window.scrollY > 50);
@@ -39,6 +53,242 @@
         /></a>
       </nav>
     </header>
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Кончето</h1>
+          <p>
+            Един от най-известните и предизвикателни маршрути в Пирин планина.
+          </p>
+        </div>
+        <div class="mountain-layer"></div>
+      </section>
+      <section
+        class="adventure-full-section"
+        style="background-image: url('../Aleks/images/background-image.png')"
+      >
+        <div class="adventure-container">
+          <div class="adventure-book">
+            <div class="book-content">
+              <h2>Кончето</h2>
+              <span class="badge very-hard">VERY HARD</span>
+              <p class="location">Пирин планина</p>
+              <p class="distance">13,05 km</p>
+              <div class="book-content-container">
+                <div class="book-description very-hard-card">
+                  <p>
+                    Кончето е един от най-известните и предизвикателни маршрути
+                    в Пирин планина. Той е известен със своите стръмни склонове,
+                    тесни проходи и невероятни гледки. Маршрутът започва от хижа
+                    "Бъндерица" и преминава през живописни места, включително
+                    върховете Вихрен и Кончето.
+                  </p>
+                  <p>
+                    По време на маршрута ще имате възможност да се насладите на
+                    красиви панорамни гледки към околните върхове и долини. Този
+                    маршрут е подходящ за опитни туристи, които търсят
+                    предизвикателства и искат да се насладят на красотата на
+                    Пирин планина.
+                  </p>
+                  <div class="card-mountain">
+                    <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+                      <path
+                        d="M0 30 L20 10 L40 20 L60 5 L80 15 L100 0 L100 30 Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="strava-container">
+                  <h3>Маршрут</h3>
+                  <div class="video-container" style="height: 600px">
+                    <div
+                      id="map-container"
+                      style="height: 70%; width: 100%"
+                      data-gpx-file="Koncheto.gpx"
+                    ></div>
+                    <div class="map-controls">
+                      <div class="control-buttons">
+                        <button id="play-btn" class="control-btn">Play</button>
+                        <button id="pause-btn" class="control-btn">
+                          Pause
+                        </button>
+                        <button id="stop-btn" class="control-btn">Stop</button>
+                        <button id="reset-btn" class="control-btn">
+                          Reset
+                        </button>
+                      </div>
+                      <div class="speed-control">
+                        <label for="speed-slider">Speed:</label>
+                        <input
+                          type="range"
+                          id="speed-slider"
+                          min="1"
+                          max="10"
+                          value="5"
+                          class="slider"
+                        />
+                        <span id="speed-value">1x</span>
+                      </div>
+                    </div>
+                    <div class="track-info">
+                      <div class="elevation-chart" id="elevation-chart"></div>
+                      <div class="track-stats">
+                        <div class="stat">
+                          <span class="stat-label">Distance:</span>
+                          <span id="total-distance" class="stat-value"
+                            >0 km</span
+                          >
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Elevation Gain:</span>
+                          <span id="elevation-gain" class="stat-value"
+                            >0 m</span
+                          >
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Max Elevation:</span>
+                          <span id="max-elevation" class="stat-value">0 m</span>
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Current Elevation:</span>
+                          <span id="current-elevation" class="stat-value"
+                            >0 m</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="strava-stats-container">
+                  <h3>Статистика от Strava</h3>
+                  <div
+                    class="strava-embed-placeholder"
+                    data-embed-type="activity"
+                    data-embed-id="12127839658"
+                    data-style="standard"
+                    data-from-embed="false"
+                  ></div>
+                  <script src="https://strava-embeds.com/embed.js"></script>
+                </div>
+                <div class="requirements-section">
+                  <h2>Изисквания за прехода</h2>
+                  <ul class="requirements-list">
+                    <li>
+                      Много добра физическа подготовка - маршрутът е технически
+                      сложен
+                    </li>
+                    <li>Задължително планинарски обувки с твърда подметка</li>
+                    <li>Минимум 2 литра вода</li>
+                    <li>
+                      Слънцезащитен крем и шапка - маршрутът е силно изложен
+                    </li>
+                    <li>
+                      Топли дрехи на слоеве - температурите варират значително
+                    </li>
+                    <li>Ръкавици за преминаване по въжетата</li>
+                    <li>Дъждобран и ветроустойчиво яке</li>
+                    <li>
+                      Каска за безопасност при преминаване на технически
+                      участъци
+                    </li>
+                    <li>
+                      Опит в планинския туризъм ЗАДЪЛЖИТЕЛЕН - маршрутът е със
+                      сложност VERY HARD
+                    </li>
+                    <li>
+                      Преходът трябва да се прави само в група и при добри
+                      метеорологични условия
+                    </li>
+                    <li>
+                      Препоръчително е да се ползват услугите на планински водач
+                    </li>
+                  </ul>
+                </div>
+                <a href="../Kris/forms.html" class="btn-register"
+                  >запиши се сега!</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="carousel-container">
+            <h2>Галерия</h2>
+            <div class="carousel">
+              <button class="carousel-button prev-button">&#10094;</button>
+              <div class="carousel-track-container">
+                <ul class="carousel-track">
+                  <li class="carousel-slide current-slide">
+                    <img
+                      src="./images/koncheto.jpg"
+                      alt="Koncheto panorama"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="../Kamen/img/7.png"
+                      alt="Mountain trail"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="../Kamen/img/4.png"
+                      alt="Mountain view"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="../Kamen/img/5.png"
+                      alt="Ridge view"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="../Kamen/img/6.png"
+                      alt="Mountain trail"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="../Kamen/img/IMG_20240503_121058.jpg"
+                      alt="Landscape view"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <button class="carousel-button next-button">&#10095;</button>
+            </div>
+            <div class="carousel-nav">
+              <button class="carousel-indicator current-slide"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button id="topBtn" title="Go to top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          width="24"
+          height="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M21.53 9.53a.75.75 0 0 1-1.06 0l-4.72-4.72V15a6.75 6.75 0 0 1-13.5 0v-3a.75.75 0 0 1 1.5 0v3a5.25 5.25 0 1 0 10.5 0V4.81L9.53 9.53a.75.75 0 0 1-1.06-1.06l6-6a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </main>
     <footer>
       <div class="footer-content">
         <p>
@@ -61,5 +311,6 @@
     </footer>
     <script src="../Kamen/script.js"></script>
     <script src="../Aleks/aleks-script.js"></script>
+    <script src="gpx-track-fixed.js"></script>
   </body>
 </html>

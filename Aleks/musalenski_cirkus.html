@@ -3,8 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Musalensky circus</title>
-    <link rel="stylesheet" href="../Aleks/separated_adventures.css" />
+    <title>Musalenski Circus - Gorski Adventures</title>
+    <link rel="stylesheet" href="separated_adventures.css" />
+    <link rel="stylesheet" href="book_content_styles.css" />
+    <link rel="stylesheet" href="gpx-track.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
     <script>
       window.addEventListener("scroll", function () {
         document.body.classList.toggle("scrolled", window.scrollY > 50);
@@ -12,7 +26,6 @@
     </script>
   </head>
   <body>
-    <div class="background"></div>
     <header>
       <div class="logo">
         <img
@@ -20,7 +33,7 @@
           alt="Logo"
           class="logo-img"
         />
-        <span>Gorski<br /><small>Musalensky circus</small></span>
+        <span>Gorski<br /><small>Musalenski Circus</small></span>
       </div>
       <nav class="menu">
         <a href="../../8V-24-25-Almost-Gorski/Kamen/index.html"
@@ -40,35 +53,235 @@
         /></a>
       </nav>
     </header>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Explore the Peaks with Gorski</h1>
-        <p>Your next hiking adventure awaits in the heart of nature.</p>
-      </div>
-      <div class="mountain-layer"></div>
-    </section>
-    <div class="image-background">
-      <img
-        src="../Aleks/images/background-image.png"
-        alt="Background Image"
-        class="background-image"
-      />
-    </div>
-    <button id="topBtn" title="Go to top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        width="24"
-        height="24"
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Мусаленски циркус</h1>
+          <p>
+            Един от най-красивите и живописни циркуси в България, разположен в
+            Рила планина.
+          </p>
+        </div>
+        <div class="mountain-layer"></div>
+      </section>
+      <section
+        class="adventure-full-section"
+        style="background-image: url('../Aleks/images/background-image.png')"
       >
-        <path
-          fill-rule="evenodd"
-          d="M21.53 9.53a.75.75 0 0 1-1.06 0l-4.72-4.72V15a6.75 6.75 0 0 1-13.5 0v-3a.75.75 0 0 1 1.5 0v3a5.25 5.25 0 1 0 10.5 0V4.81L9.53 9.53a.75.75 0 0 1-1.06-1.06l6-6a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06Z"
-          clip-rule="evenodd"
-        />
-      </svg>
-    </button>
+        <div class="adventure-container">
+          <div class="adventure-book">
+            <div class="book-content">
+              <h2>Мусаленски циркус</h2>
+              <span class="badge very-hard">VERY HARD</span>
+              <p class="location">Рила планина</p>
+              <p class="distance">18,76 km</p>
+              <div class="book-content-container">
+                <div class="book-description very-hard-card">
+                  <p>
+                    Мусаленският циркус е един от най-красивите и живописни
+                    циркуси в България. Намира се в Рила планина и предлага
+                    невероятни гледки и възможности за туризъм. Циркусът е
+                    заобиколен от високи върхове, включително връх Мусала, който
+                    е най-високият връх на Балканския полуостров.
+                  </p>
+                  <p>
+                    Мусаленският циркус е известен със своите кристално чисти
+                    езера, зелени поляни и разнообразна флора и фауна. Тук
+                    можете да се насладите на различни дейности на открито,
+                    включително пешеходен туризъм, планинско колоездене и
+                    наблюдение на дивата природа. Циркусът предлага и множество
+                    маршрути с различна трудност, които са подходящи за
+                    начинаещи и опитни туристи.
+                  </p>
+                  <div class="card-mountain">
+                    <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+                      <path
+                        d="M0 30 L20 10 L40 20 L60 5 L80 15 L100 0 L100 30 Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="strava-container">
+                  <h3>Маршрут</h3>
+                  <div class="video-container" style="height: 600px">
+                    <div
+                      id="map-container"
+                      style="height: 70%; width: 100%"
+                      data-gpx-file="Musalensky cirkus.gpx"
+                    ></div>
+                    <div class="map-controls">
+                      <div class="control-buttons">
+                        <button id="play-btn" class="control-btn">Play</button>
+                        <button id="pause-btn" class="control-btn">
+                          Pause
+                        </button>
+                        <button id="stop-btn" class="control-btn">Stop</button>
+                        <button id="reset-btn" class="control-btn">
+                          Reset
+                        </button>
+                      </div>
+                      <div class="speed-control">
+                        <label for="speed-slider">Speed:</label>
+                        <input
+                          type="range"
+                          id="speed-slider"
+                          min="1"
+                          max="10"
+                          value="5"
+                          class="slider"
+                        />
+                        <span id="speed-value">1x</span>
+                      </div>
+                    </div>
+                    <div class="track-info">
+                      <div class="elevation-chart" id="elevation-chart"></div>
+                      <div class="track-stats">
+                        <div class="stat">
+                          <span class="stat-label">Distance:</span>
+                          <span id="total-distance" class="stat-value"
+                            >0 km</span
+                          >
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Elevation Gain:</span>
+                          <span id="elevation-gain" class="stat-value"
+                            >0 m</span
+                          >
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Max Elevation:</span>
+                          <span id="max-elevation" class="stat-value">0 m</span>
+                        </div>
+                        <div class="stat">
+                          <span class="stat-label">Current Elevation:</span>
+                          <span id="current-elevation" class="stat-value"
+                            >0 m</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="strava-stats-container">
+                  <h3>Статистика от Strava</h3>
+                  <div
+                    class="strava-embed-placeholder"
+                    data-embed-type="activity"
+                    data-embed-id="11870331714"
+                    data-style="standard"
+                    data-from-embed="false"
+                  ></div>
+                  <script src="https://strava-embeds.com/embed.js"></script>
+                </div>
+                <div class="requirements-section">
+                  <h2>Изисквания за прехода</h2>
+                  <ul class="requirements-list">
+                    <li>
+                      Добра физическа подготовка - маршрутът е с дължина 18.76
+                      км
+                    </li>
+                    <li>Планинарски обувки с добър грайфер</li>
+                    <li>Минимум 2 литра вода</li>
+                    <li>Слънцезащитен крем и шапка през летния сезон</li>
+                    <li>
+                      Топли дрехи и ръкавици - температурите могат да паднат
+                      значително
+                    </li>
+                    <li>Дъждобран или водоустойчиво яке</li>
+                    <li>Енергийни храни и лека закуска</li>
+                    <li>Челник за ранно тръгване или късно прибиране</li>
+                    <li>
+                      Опит в планинския туризъм - маршрутът е със сложност VERY
+                      HARD
+                    </li>
+                    <li>Препоръчително е преходът да се прави в група</li>
+                  </ul>
+                </div>
+                <a href="../Kris/forms.html" class="btn-register"
+                  >запиши се сега!</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="carousel-container">
+            <h2>Галерия</h2>
+            <div class="carousel">
+              <button class="carousel-button prev-button">&#10094;</button>
+              <div class="carousel-track-container">
+                <ul class="carousel-track">
+                  <li class="carousel-slide current-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 1"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 2"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 3"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 4"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 5"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                  <li class="carousel-slide">
+                    <img
+                      src="./images/circus.jpg"
+                      alt="Мусаленски циркус 6"
+                      class="carousel-image card-image"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <button class="carousel-button next-button">&#10095;</button>
+            </div>
+            <div class="carousel-nav">
+              <button class="carousel-indicator current-slide"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button id="topBtn" title="Go to top">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          width="24"
+          height="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M21.53 9.53a.75.75 0 0 1-1.06 0l-4.72-4.72V15a6.75 6.75 0 0 1-13.5 0v-3a.75.75 0 0 1 1.5 0v3a5.25 5.25 0 1 0 10.5 0V4.81L9.53 9.53a.75.75 0 0 1-1.06-1.06l6-6a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </main>
     <footer>
       <div class="footer-content">
         <p>
@@ -89,7 +302,13 @@
         <a href="/8V-24-25-Almost-Gorski/Kris/about.html">About</a>
       </nav>
     </footer>
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="expandedImage" />
+      <div id="caption"></div>
+    </div>
     <script src="../Kamen/script.js"></script>
     <script src="../Aleks/aleks-script.js"></script>
+    <script src="gpx-track-fixed.js"></script>
   </body>
 </html>

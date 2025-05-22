@@ -1,0 +1,100 @@
+.book-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  align-items: stretch;
+  width: 100%;
+}
+.book-description {
+  width: 100%;
+  margin-bottom: 0;
+  box-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.18);
+  transform: translateZ(0);
+}
+.strava-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.18);
+  transform: translateZ(0);
+}
+.strava-container h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.8rem;
+  text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.15);
+  color: #2d5448;
+  position: relative;
+}
+.strava-container h3::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5rem;
+  height: 0.1875rem;
+  background-color: #2d5448;
+  border-radius: 0.1875rem;
+}
+.btn-register {
+  display: block;
+  width: fit-content;
+  margin: 0.5rem auto 1.5rem;
+  padding: 1.2rem 4rem;
+  background-color: #2d5448;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 0.5rem 0.9375rem rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  letter-spacing: 0.09375rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-register:hover {
+  background-color: #1a3b32;
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.3);
+}
+.btn-register:active {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+.btn-register::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+.btn-register:hover::before {
+  left: 120%;
+}
+.video-container {
+  height: 28.125rem;
+  margin-top: 1rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2);
+  border: 0.0625rem solid rgba(45, 84, 72, 0.3);
+}
+.adventure-full-section::before {
+  background: rgba(0, 0, 0, 0);
+}
+.adventure-full-section {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

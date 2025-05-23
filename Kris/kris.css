@@ -39,9 +39,9 @@ td {
 }
 
 .table-img {
-  width: 100px;
+  width: 15rem;
   height: auto;
-  border-radius: 5px;
+  border-radius: 1rem;
   display: block;
   margin: 0 auto;
 }
@@ -251,4 +251,111 @@ select option {
 
 .submit:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+topBtn {
+  position: fixed;
+  bottom: 1.875rem;
+  right: 1.875rem;
+  z-index: 100;
+  display: none;
+  border: none;
+  outline: none;
+  background-color: rgba(24, 112, 43, 0.8);
+  cursor: pointer;
+  padding: 0.9375rem;
+  border-radius: 10px;
+  font-size: 1.125rem;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: fadeOut 0.3s ease forwards; 
+}
+
+#topBtn.show {
+  display: block;
+  animation: fadeIn 0.3s ease forwards; 
+}
+
+#topBtn:not(.show) {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+footer {
+  position: bottom;
+  z-index: 1;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.footer-content {
+    margin-left: 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.footer-content a {
+    color: green;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: gray;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 2rem;
+}
+
+.footer-menu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-bottom: 0.5em;
+  margin: 0 1em;
+  font-size: 1.2rem;
+}
+
+.footer-menu a:hover {
+    color: gray;
 }

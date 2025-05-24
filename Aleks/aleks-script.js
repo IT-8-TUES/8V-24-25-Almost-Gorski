@@ -12,17 +12,6 @@ window.addEventListener("scroll", function () {
             
               img.classList.add('loaded');
               slide.classList.remove('loading');
-              
-          
-              if (img.src.includes('koncheto_2') || img.src.includes('koncheto_5')) {
-                img.style.imageRendering = "-webkit-optimize-contrast";
-              }
-              
-              if (img.src.includes('koncheto_2') || img.src.includes('koncheto_4') || img.src.includes('koncheto_6')) {
-              
-                img.style.opacity = "1";
-                img.style.visibility = "visible";
-              }
             };eaderImages.forEach((img) => {
     const src = img.getAttribute("src");
     if (isScrolled) {

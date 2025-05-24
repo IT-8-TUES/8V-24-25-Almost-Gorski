@@ -50,8 +50,8 @@
         <a href="../Kamen/gallery.html"
           ><img src="./images/galleryInverted.png" alt="Gallery"
         /></a>
-        <a href="../Aleks/contact.html"
-          ><img src="./images/contactsInverted.png" alt="Contacts"
+        <a href="../Kris/forms.html"
+          ><img src="./images/contactsInverted.png" alt="Forms"
         /></a>
         <a href="../Kris/about.html"
           ><img src="./images/about_usInverted.png" alt="About"
@@ -112,7 +112,7 @@
                     <div
                       id="map-container"
                       style="height: 70%; width: 100%"
-                      data-gpx-file="Musalensky cirkus.gpx"
+                      data-gpx-file="./tracks/Musalensky cirkus.gpx"
                     ></div>
                     <div class="map-controls">
                       <div class="control-buttons">
@@ -207,69 +207,41 @@
                 >
               </div>
             </div>
-          </div>
-          <div class="carousel-container">
+          </div>          <div class="carousel-container">
             <h2>Галерия</h2>
             <div class="carousel">
-              <button class="carousel-button prev-button">&#10094;</button>
-              <div class="carousel-track-container">
-                <ul class="carousel-track">
-                  <li class="carousel-slide current-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 1"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 2"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 3"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 4"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 5"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="./images/circus.jpg"
-                      alt="Мусаленски циркус 6"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                </ul>
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <img src="./images/circus.jpg" alt="Мусаленски циркус 1">
+                </div>
+                <div class="carousel-slide">
+                  <img src="./images/musalensky_cirkus_2.jpg" alt="Мусаленски циркус 2">
+                </div>
+                <div class="carousel-slide">
+                  <img src="./images/musalensky_cirkus_3.jpg" alt="Мусаленски циркус 3">
+                </div>
+                <div class="carousel-slide">
+                  <img src="./images/musalensky_cirkus_4.jpg" alt="Мусаленски циркус 4">
+                </div>
+                <div class="carousel-slide">
+                  <img src="./images/musalensky_cirkus_5.jpg" alt="Мусаленски циркус 5">
+                </div>
+                <div class="carousel-slide">
+                  <img src="./images/musalensky_cirkus_6.jpg" alt="Мусаленски циркус 6">
+                </div>
               </div>
-              <button class="carousel-button next-button">&#10095;</button>
+              <button class="carousel-button prev-button" aria-label="Previous slide">&#10094;</button>
+              <button class="carousel-button next-button" aria-label="Next slide">&#10095;</button>
             </div>
-            <div class="carousel-nav">
-              <button class="carousel-indicator current-slide"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
+            <div class="carousel-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+              <span class="dot" data-index="4"></span>
+              <span class="dot" data-index="5"></span>
             </div>
           </div>
-        </div>
       </section>
       <button id="topBtn" title="Go to top">
         <svg
@@ -301,14 +273,17 @@
         <a href="../Kamen/index.html">Home</a>
         <a href="../Aleks/adventures_main.html">Adventures</a>
         <a href="../Kamen/gallery.html">Gallery</a>
-        <a href="../Aleks/forms.html">Forms</a>
+        <a href="../Kris/forms.html">Forms</a>
         <a href="../Kris/about.html">About</a>
       </nav>
-    </footer>
-    <div id="imageModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="expandedImage" />
-      <div id="caption"></div>
+    </footer>    <div id="imageModal" class="modal">
+      <span class="close" aria-label="Close fullscreen view">&times;</span>
+      <img class="modal-content" id="expandedImage" alt="" />
+      <div id="caption" role="status" aria-live="polite"></div>
+      <div class="modal-controls">
+        <button class="modal-prev" aria-label="Previous image">&lt;</button>
+        <button class="modal-next" aria-label="Next image">&gt;</button>
+      </div>
     </div>
     <script src="../Kamen/script.js"></script>
     <script src="../Aleks/aleks-script.js"></script>

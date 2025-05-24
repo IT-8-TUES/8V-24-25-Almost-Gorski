@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../Aleks/separated_adventures.css" />
     <link rel="stylesheet" href="book_content_styles.css" />
     <link rel="stylesheet" href="gpx-track.css" />
+    <link rel="stylesheet" href="carousel-image-fixes.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -50,8 +51,8 @@
         <a href="../Kamen/gallery.html"
           ><img src="./images/galleryInverted.png" alt="Gallery"
         /></a>
-        <a href="../Aleks/contact.html"
-          ><img src="./images/contactsInverted.png" alt="Contacts"
+        <a href="../Kris/forms.html"
+          ><img src="./images/contactsInverted.png" alt="Forms"
         /></a>
         <a href="../Kris/about.html"
           ><img src="./images/about_usInverted.png" alt="About"
@@ -109,7 +110,7 @@
                     <div
                       id="map-container"
                       style="height: 70%; width: 100%"
-                      data-gpx-file="Koncheto.gpx"
+                      data-gpx-file="./tracks/Koncheto.gpx"
                     ></div>
                     <div class="map-controls">
                       <div class="control-buttons">
@@ -215,66 +216,45 @@
               </div>
             </div>
           </div>
-          <div class="carousel-container">
+          <div class="carousel">
             <h2>Галерия</h2>
-            <div class="carousel">
-              <button class="carousel-button prev-button">&#10094;</button>
-              <div class="carousel-track-container">
-                <ul class="carousel-track">
-                  <li class="carousel-slide current-slide">
-                    <img
-                      src="./images/koncheto.jpg"
-                      alt="Koncheto panorama"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="../Kamen/img/7.png"
-                      alt="Mountain trail"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="../Kamen/img/4.png"
-                      alt="Mountain view"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="../Kamen/img/5.png"
-                      alt="Ridge view"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="../Kamen/img/6.png"
-                      alt="Mountain trail"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                  <li class="carousel-slide">
-                    <img
-                      src="../Kamen/img/IMG_20240503_121058.jpg"
-                      alt="Landscape view"
-                      class="carousel-image card-image"
-                    />
-                  </li>
-                </ul>
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img src="./images/koncheto.jpg" alt="Кончето 1" />
               </div>
-              <button class="carousel-button next-button">&#10095;</button>
+              <div class="carousel-slide">
+                <img src="./images/koncheto_2.jpg" alt="Кончето 2" />
+              </div>
+              <div class="carousel-slide">
+                <img src="./images/koncheto_3.jpg" alt="Кончето 3" />
+              </div>
+              <div class="carousel-slide">
+                <img src="./images/koncheto_4.jpg" alt="Кончето 4" />
+              </div>
+              <div class="carousel-slide">
+                <img src="./images/koncheto_5.jpg" alt="Кончето 5" />
+              </div>
+              <div class="carousel-slide">
+                <img src="./images/koncheto_6.jpg" alt="Кончето 6" />
+              </div>
             </div>
-            <div class="carousel-nav">
-              <button class="carousel-indicator current-slide"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-              <button class="carousel-indicator"></button>
-            </div>
+            <button
+              class="carousel-button prev-button"
+              aria-label="Previous slide"
+            >
+              &#10094;
+            </button>
+            <button class="carousel-button next-button" aria-label="Next slide">
+              &#10095;
+            </button>
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+            <span class="dot" data-index="5"></span>
           </div>
         </div>
       </section>
@@ -308,10 +288,19 @@
         <a href="../Kamen/index.html">Home</a>
         <a href="../Aleks/adventures_main.html">Adventures</a>
         <a href="../Kamen/gallery.html">Gallery</a>
-        <a href="../Aleks/forms.html">Forms</a>
+        <a href="../Kris/forms.html">Forms</a>
         <a href="../Kris/about.html">About</a>
       </nav>
     </footer>
+    <div id="imageModal" class="modal">
+      <span class="close" aria-label="Close fullscreen view">&times;</span>
+      <img class="modal-content" id="expandedImage" alt="" />
+      <div id="caption" role="status" aria-live="polite"></div>
+      <div class="modal-controls">
+        <button class="modal-prev" aria-label="Previous image">&lt;</button>
+        <button class="modal-next" aria-label="Next image">&gt;</button>
+      </div>
+    </div>
     <script src="../Kamen/script.js"></script>
     <script src="../Aleks/aleks-script.js"></script>
     <script src="gpx-track-fixed.js"></script>

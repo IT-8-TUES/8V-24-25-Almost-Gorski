@@ -3,7 +3,7 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #50865d 20%, #1a6f25 80%);
+  background: linear-gradient(180deg, #50865d 20%, #2c913a 80%);
   color: #333;
 }
 .container h2 {
@@ -253,7 +253,7 @@ select option {
     background: rgba(255, 255, 255, 0.2);
 }
 
-topBtn {
+#topBtn {
   position: fixed;
   bottom: 1.875rem;
   right: 1.875rem;
@@ -358,4 +358,55 @@ footer {
 
 .footer-menu a:hover {
     color: gray;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.checkbox-group label {
+    margin: 0;
+}
+
+.terms-link {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.terms-link a {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.terms-link a:hover {
+    opacity: 0.8;
+}
+
+.notification {
+    position: fixed;
+    top: 7em;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background: rgba(47, 82, 51, 0.9);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    width: fit-content;
+    text-align: center;
+}
+
+.notification.show {
+    transform: translateX(-50%) translateY(0);
 }

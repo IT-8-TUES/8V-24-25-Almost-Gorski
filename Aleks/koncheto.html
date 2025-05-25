@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../Aleks/separated_adventures.css" />
     <link rel="stylesheet" href="book_content_styles.css" />
     <link rel="stylesheet" href="gpx-track.css" />
-    <link rel="stylesheet" href="carousel-image-fixes.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -106,7 +105,7 @@
                 </div>
                 <div class="strava-container">
                   <h3>Маршрут</h3>
-                  <div class="video-container" style="height: 600px">
+                  <div class="video-container" style="height: 70%">
                     <div
                       id="map-container"
                       style="height: 70%; width: 100%"
@@ -216,8 +215,9 @@
               </div>
             </div>
           </div>
-          <div class="carousel">
+          <div class="carousel-container">
             <h2>Галерия</h2>
+            <div class="carousel">
             <div class="carousel-track">
               <div class="carousel-slide">
                 <img src="./images/koncheto.jpg" alt="Кончето 1" />
@@ -247,16 +247,16 @@
             <button class="carousel-button next-button" aria-label="Next slide">
               &#10095;
             </button>
+            </div>
+            <div class="carousel-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+              <span class="dot" data-index="4"></span>
+              <span class="dot" data-index="5"></span>
+            </div>
           </div>
-          <div class="carousel-dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-            <span class="dot" data-index="4"></span>
-            <span class="dot" data-index="5"></span>
-          </div>
-        </div>
       </section>
       <button id="topBtn" title="Go to top">
         <svg
@@ -300,8 +300,8 @@
         <button class="modal-prev" aria-label="Previous image">&lt;</button>
         <button class="modal-next" aria-label="Next image">&gt;</button>
       </div>
-    </div>
-    <script src="../Kamen/script.js"></script>
+    </div>    <script src="../Kamen/script.js"></script>
+    <script src="../Aleks/header-modal.js"></script>
     <script src="../Aleks/aleks-script.js"></script>
     <script src="gpx-track-fixed.js"></script>
   </body>
